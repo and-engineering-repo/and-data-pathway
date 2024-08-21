@@ -59,7 +59,7 @@ install-docker-wsl2:
 	@wsl -d Ubuntu -- bash -c 'sudo apt-get update && sudo apt-get install -y docker.io docker-compose && sudo usermod -aG docker $$(whoami)'
 	@echo "Docker installed successfully on Windows with WSL2. Please restart your terminal."
 
-setup: ensure-docker
+setup: ensure-docker check
 
 build:
 	@echo "Building Docker images..."
@@ -154,3 +154,8 @@ clean:
 	rm -f $(ZIP_FILE) output.txt
 	@echo "Cleanup done."
 
+
+check:
+	-pip install pre-commit
+	-chmod +x ./hooks/protect-main-branch.sh
+	pre-commit run --all-files

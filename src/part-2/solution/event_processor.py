@@ -34,7 +34,7 @@ logger.debug("SNS client initialized")
 topic_arn = f"arn:aws:sns:eu-west-1:000000000000:{SNS_TOPIC_NAME}"
 
 
-def transform_record(raw_record: Dict[str, Any]) -> Dict[str, Any] :
+def transform_record(raw_record: Dict[str, Any]) -> Dict[str, Any]:
     return {
         "icao24": raw_record['icao24'],
         "callsign": raw_record['callsign'],

@@ -2,11 +2,11 @@
 
 ## Problem Statement
 
-The goal of this project is to build a real-time data processing pipeline that ingests flight data from the OpenSky Network API, processes it using AWS Lambda, and receive in SNS. 
+The goal of this project is to build a real-time data processing pipeline that ingests flight data from the OpenSky Network API, processes it using AWS Lambda, and receive in SNS.
 This project will demonstrate the ability to handle real-time streaming data, perform data transformations, and integrate cloud services seamlessly.
 
 ### Infrastructure
-All the infrastructure needed to run the application end to end is given docker services so that we can run the services locally end to end. 
+All the infrastructure needed to run the application end to end is given docker services so that we can run the services locally end to end.
 The list of services made available  along with brief introduction and credentials to access it are given below.
 
 | Service        | Image                                 | Description                                                                                                                                                                 | Access                                                                            | Volumes                                                                                                  |
@@ -94,8 +94,8 @@ By completing this challenge, you will demonstrate your ability to integrate rea
 
 ### Docker
 
-This project depends on Docker engine being installed in your local machine. But to make installation easier, 
-Makefile targets have been given by default for Windows, Linux & MacOS. 
+This project depends on Docker engine being installed in your local machine. But to make installation easier,
+Makefile targets have been given by default for Windows, Linux & MacOS.
 
 
 
@@ -104,11 +104,11 @@ To ensure Docker engine is installed, simply execute the following command
 ```shell
 $ make setup
 ```
- 
+
 
 ## How to run the project ?
 
-#### Infra & Application flow 
+#### Infra & Application flow
 - All the infrastructure will be made available to us via **Docker**
 - All the services like Postgres, Conducktor, Kafka, Zookeeper & Localstack will me made available via `Localhost` under different ports.
 - The Python applications we will be using for this projects `will be running in your local machine`.
@@ -118,11 +118,11 @@ $ make setup
 This will pretty much be the flow of how we will be doing our development
 
 - **Step-1:** Start all the services via Docker
-- **Step-2:** Develop Producer locally & run it locally. 
+- **Step-2:** Develop Producer locally & run it locally.
 - **Step-3:** Develop Lambda trigger locally & run it locally.
 - **Step-4:** Develop aws Lambda code locally, test it locally, Deploy it to AWS(localstack), and run the lambda within AWS environment.
 
-In Summary, 
+In Summary,
 `Fetch API data (local) -> Produce to Kafka (local) -> For every message trigger Lambda using boto3 (local) -> Process the message using Lambda (aws/localstack) -> Publish the message  to SNS topic (aws/localstack)`
 
 ![dev_flow.png](static/dev_flow.png)
@@ -141,6 +141,11 @@ $ make deploy-lambda
 
 
 ## Useful Make targets
+
+### Ensure code quality
+```shell
+make check
+```
 
 
 ### Start all services

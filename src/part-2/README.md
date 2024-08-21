@@ -1,5 +1,5 @@
 # Part-2
-In this part of the project we will writing the processing logic which goes into lambda 
+In this part of the project we will writing the processing logic which goes into lambda
 
 - **Exercise-1**: Write the code to filter out grounded flights
 - **Exercise-2**: Extend the code to include publishing to SNS topic
@@ -14,19 +14,19 @@ In this part of the project we will writing the processing logic which goes into
 ### How to run the code ?
 - Before running the python code ensure docker is running and all the services are up
     ```shell
-      make run # will start all the services needed to complete this exercises 
+      make run # will start all the services needed to complete this exercises
     ```
-  
+
 - Before running the code ensure SNS topic is deployed in AWS/localstack
     ```shell
-      make create-sns-topic 
+      make create-sns-topic
     ```
   - Once published, use the following command to check number of messages in topic
     ```shell
-      make create-sns-topic 
+      make create-sns-topic
     ```
 
-### Testing the lambda locally 
+### Testing the lambda locally
 Once the logic has been developed, we can test the lambda code locally before deploying.
 
 ```python
@@ -80,7 +80,7 @@ if __name__ == '__main__':
   msg_key: str = "5741e738-142c-496d-8276-bb4b4f738d08"
   sample_event = {
     'message': [
-      None, None, None, None, None, msg_key, sample_record 
+      None, None, None, None, None, msg_key, sample_record
     ]
   }
   lambda_handler(event=sample_event, context=None)
@@ -92,7 +92,7 @@ if __name__ == '__main__':
 
 In the code whenever we create BOTO3 objects, like sns client, cloudwatch client
 
-in normal AWS we will create the client like 
+in normal AWS we will create the client like
 
 ```python
 
@@ -130,16 +130,16 @@ cloudwatch_client = boto3.client(
       export LAMBDA_FILE_DIRECTORY ?= ./src/part-2/solution/
       export LAMBDA_FILE_NAME ?= event_processor.py
     ```
-    into 
+    into
     ```shell
         export LAMBDA_FILE_DIRECTORY ?= ./src/part-2/exercises/
         export LAMBDA_FILE_NAME ?= exercise4.py
         # assuming this is the file that has the finished code
       ```
-  
+
   - Once the change has been made you can simply execute `make deploy-lambda` to deploy the lambda into AWS/localstack.
 
 
-### Solution 
+### Solution
 At any point in time, if you feel stuck, please feel free to refer to the fully finished
 solution [event_processor.py](solution/event_processor.py) for reference.

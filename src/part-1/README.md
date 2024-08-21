@@ -15,9 +15,9 @@ In this part of the project we will be exploring OpenSky API and be publishing t
 
 - Before running the python code ensure docker is running and all the services are up
     ```shell
-      make run # will start all the services needed to complete this exercises 
+      make run # will start all the services needed to complete this exercises
     ```
 
-### Solution 
+### Solution
 At any point in time, if you feel stuck, please feel free to refer to the fully finished
 solution [producer.py](solution/producer.py) for reference.
